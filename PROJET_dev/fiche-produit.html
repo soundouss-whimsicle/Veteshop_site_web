@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FICHE PRODUIT</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div>Livraison gratuite dès 500 DH d'achat !</div>
+        <header>
+            <img src="logo.png" alt="logo de la marque" width="100" height="auto">
+            <!-- class avatar ajusté a droite de la barre de navigation -->
+            <a href="avatar_utilisateur"><img src="avatar-utilisateur.png" alt="avatar de l'utilisateur" width="24" height="24" class="avatar"></a>
+            <a href="avatar_panier"><img src="avatar-panier.png" alt="avatar du panier" width="24" height="24" class="avatar"></a>
+        </header>
+
+        <nav>
+            <p>Menu</p>
+            <ul>
+                <li><a href="#Acceuil">Accueil</a></li>
+                <li>Catégories</li>
+                <li><a href="sets.html">Sets</a></li>
+                <li><a href="tops.html">Tops</a></li>
+                <li><a href="bottoms.html">bottoms</a></li>
+            </ul>
+        </nav>
+
+        <form >
+            <input type="text" placeholder="Rechercher">
+            <a href="avatar_recherche"><img src="avatar-recherche.png" alt="avatar de recherche" width="24" height="24"></a>
+        </form>
+
+        <section>
+            <h1>Nom du produit</h1>
+            <img src="image-produit.png" alt="image du produit">
+            <p>Description du produit.</p>
+            <p>Prix : xxx DH</p>
+            
+            <form>
+                <label for="couleur">Couleur :</label>
+                <input type="radio" name="couleur" value="rouge"> Rouge
+                <input type="radio" name="couleur" value="bleu"> Bleu   
+                <input type="radio" name="couleur" value="vert"> Vert
+                <input type="radio" name="couleur" value="jaune"> Jaune
+                <br><br>
+                <label for="quantite">Quantité :</label>
+                <input type="number" name="quantite" min="1" value="1">
+                <br><br>
+                <label for="taille">Taille :</label>
+                <input type="radio" name="taille" value="XS"> XS
+                <input type="radio" name="taille" value="S"> S
+                <input type="radio" name="taille" value="M"> M
+                <input type="radio" name="taille" value="L"> L
+                <input type="radio" name="taille" value="XL"> XL
+                <input type="radio" name="taille" value="XXL"> XXL
+            </form>
+            <p>Disponibilité : en stock</p>
+            <form action="ajouter_au_panier.php" method="post">
+                <input type="hidden" name="product_id" value="123">
+                <button type="submit">Ajouter au panier</button>
+            </form>
+        </section>
+    </body>
+
+    <footer>
+        <a href="aide">Aide</a>
+        <p>Trouvez nous sur:</p>
+        <a href="instagram"><img src="instagram.png" alt="avatar d'Instagram" width="24" height="24"></a>
+        <a href="facebook"><img src="facebook.png" alt="avatar de Facebook" width="24" height="24"></a>
+        <a href="tiktok"><img src="tiktok.png" alt="avatar de TikTok" width="24" height="24"></a>
+        <p>&copy; 2024 Nom de la marque. Tous droits réservés.</p>
+    </footer>
+</html>
