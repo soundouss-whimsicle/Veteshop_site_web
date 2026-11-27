@@ -37,15 +37,19 @@
             <p>Description du produit.</p>
             <p>Prix : xxx DH</p>
             
-            <form>
+            <form action="ajouter_au_panier.php" method="post" id="form">
                 <label for="couleur">Couleur :</label>
                 <input type="radio" name="couleur" value="rouge"> Rouge
                 <input type="radio" name="couleur" value="bleu"> Bleu   
                 <input type="radio" name="couleur" value="vert"> Vert
                 <input type="radio" name="couleur" value="jaune"> Jaune
                 <br><br>
-                <label for="quantite">Quantité :</label>
-                <input type="number" name="quantite" min="1" value="1">
+                <div class="quantity-selector">
+                <button type="button" id="moins">-</button>
+                  <input type="number" id="quantite" name="quantite" value="1" min="1" readonly>
+                 <button type="button" id="plus">+</button>
+
+            </div>
                 <br><br>
                 <label for="taille">Taille :</label>
                 <input type="radio" name="taille" value="XS"> XS
@@ -54,13 +58,15 @@
                 <input type="radio" name="taille" value="L"> L
                 <input type="radio" name="taille" value="XL"> XL
                 <input type="radio" name="taille" value="XXL"> XXL
-            </form>
+                <p id="erreurCouleur"></p>
+                <p id="erreurTaille"></p>
             <p>Disponibilité : en stock</p>
-            <form action="ajouter_au_panier.php" method="post">
+        
                 <input type="hidden" name="product_id" value="123">
                 <button type="submit">Ajouter au panier</button>
             </form>
         </section>
+        <script src="fiche-produit.js" defer></script>
     </body>
 
     <footer>
