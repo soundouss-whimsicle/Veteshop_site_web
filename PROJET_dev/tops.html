@@ -26,94 +26,36 @@
             </ul>
         </nav>
 
-        <form >
-            <input type="text" placeholder="Rechercher">
-            <a href="#"><img src="avatar-recherche.png" alt="avatar de recherche" width="24" height="24"></a>
+        <form id="formRecherche">
+            <input type="search" id="rechercheProduits" placeholder="Rechercher" aria-label="Rechercher un produit">
+            <a href="#" id="boutonRecherche"><img src="avatar-recherche.png" alt="Lancer la recherche" width="24" height="24"></a>
         </form>
-            
-        </header>
+        <main class="catalogue-layout">
+            <aside class="filtresCatalogue" aria-label="Filtres des produits">
+                <h2>Filtres</h2>
+                <label for="filtreCategorie">Catégorie</label>
+                <select id="filtreCategorie">
+                    <option value="">Toutes les catégories</option>
+                    <option value="Tops">Tops</option>
+                    <option value="Bottoms">Bottoms</option>
+                </select>
+
+                <label for="prixMinimum">Prix minimum (DH)</label>
+                <input type="number" id="prixMinimum" min="0" placeholder="0">
+                <label for="prixMaximum">Prix maximum (DH)</label>
+                <input type="number" id="prixMaximum" min="0" placeholder="Aucun maximum">
+
+                <fieldset>
+                    <legend>Taille</legend>
+                    <div id="optionsTaillesFiltres"></div>
+                </fieldset>
+                <button type="button" id="reinitialiserFiltres">Réinitialiser les filtres</button>
+            </aside>
+
             <section>
-        <h2>Haut</h2>
-        <article>
-            <img src="image-presentation.png" alt="">
-            <h3>produit1</h3>
-            <p>Prix : xxx DH</p>
-            <p>Disponibilité : en stock</p>
-            <a href="fiche-produit.html">Voir le produit</a>
-        </article>
-
-        <article>
-            <img src="image-presentation.png" alt="">
-            <h3>produit1</h3>
-            <p>Prix : xxx DH</p>
-            <p>Disponibilité : en stock</p>
-            <a href="fiche-produit.html">Voir le produit</a>
-        </article>
-
-        <article>
-            <img src="image-presentation.png" alt="">
-            <h3>produit1</h3>
-            <p>Prix : xxx DH</p>
-            <p>Disponibilité : en stock</p>
-            <a href="fiche-produit.html">Voir le produit</a>
-        </article>
-
-        <article>
-            <img src="image-presentation.png" alt="">
-            <h3>produit1</h3>
-            <p>Prix : xxx DH</p>
-            <p>Disponibilité : en stock</p>
-            <a href="fiche-produit.html">Voir le produit</a>
-        </article>
-
-        <article>
-            <img src="image-presentation.png" alt="">
-            <h3>produit1</h3>
-            <p>Prix : xxx DH</p>
-            <p>Disponibilité : en stock</p>
-            <a href="fiche-produit.html">Voir le produit</a>
-        </article>
-
-        <article>
-            <img src="image-presentation.png" alt="">
-            <h3>produit1</h3>
-            <p>Prix : xxx DH</p>
-            <p>Disponibilité : en stock</p>
-            <a href="fiche-produit.html">Voir le produit</a>
-        </article>
-
-        <article>
-            <img src="image-presentation.png" alt="">
-            <h3>produit1</h3>
-            <p>Prix : xxx DH</p>
-            <p>Disponibilité : en stock</p>
-            <a href="fiche-produit.html">Voir le produit</a>
-        </article>
-
-        <article>
-            <img src="image-presentation.png" alt="">
-            <h3>produit1</h3>
-            <p>Prix : xxx DH</p>
-            <p>Disponibilité : en stock</p>
-            <a href="fiche-produit.html">Voir le produit</a>
-        </article>
-        
-        <article>
-            <img src="image-presentation.png" alt="">
-            <h3>produit1</h3>
-            <p>Prix : xxx DH</p>
-            <p>Disponibilité : en stock</p>
-            <a href="fiche-produit.html">Voir le produit</a>
-        </article>
-
-        <article>
-            <img src="image-presentation.png" alt="">
-            <h3>produit1</h3>
-            <p>Prix : xxx DH</p>
-            <p>Disponibilité : en stock</p>
-            <a href="fiche-produit.html">Voir le produit</a>
-        </article>
-        </section>
+                <h2>Haut</h2>
+            </section>
+        </main>
     </body>
     
     <footer>
@@ -124,4 +66,6 @@
         <a href="#"><img src="tiktok.png" alt="avatar de TikTok" width="24" height="24"></a>
         <p>&copy; 2024 Nom de la marque. Tous droits réservés.</p>
     </footer>
+    <script src="produits-test.js" defer></script>
+    <script src="catalogue.js" defer></script>
 </html>

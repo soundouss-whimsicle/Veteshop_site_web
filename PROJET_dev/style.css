@@ -100,6 +100,12 @@ header a { position: relative; }
     line-height: 18px;
     text-align: center;
 }
+
+#imageProduit.zoom {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+    cursor: zoom-in;
+}
 .avatar {
     width: 26px;
     height: 26px;
@@ -241,6 +247,68 @@ section article a:hover {
     background-color: var(--color-4);
 }
 
+.catalogue-layout {
+    display: grid;
+    grid-template-columns: minmax(190px, 240px) minmax(0, 1fr);
+    gap: 24px;
+    padding: 24px 5%;
+    align-items: start;
+}
+
+.catalogue-layout section {
+    padding: 0;
+}
+
+.filtresCatalogue {
+    padding: 20px;
+    background-color: var(--color-3);
+    border-radius: 12px;
+    text-align: left;
+}
+
+.filtresCatalogue h2 {
+    margin: 0 0 16px;
+}
+
+.filtresCatalogue > label,
+.filtresCatalogue select,
+.filtresCatalogue > input {
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.filtresCatalogue select,
+.filtresCatalogue > input {
+    padding: 8px;
+    border: 1px solid var(--color-4);
+    border-radius: 6px;
+    background-color: white;
+}
+
+.filtresCatalogue fieldset {
+    margin: 14px 0;
+    padding: 10px;
+    border: 1px solid var(--color-4);
+    border-radius: 6px;
+}
+
+#optionsTaillesFiltres label {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin: 4px 8px 4px 0;
+}
+
+.filtresCatalogue button {
+    padding: 9px 12px;
+    border: 0;
+    border-radius: 18px;
+    background-color: var(--color-1);
+    color: white;
+    cursor: pointer;
+}
+
 
 footer {
     background-color: var(--color-1);
@@ -269,6 +337,10 @@ footer p {
 
 
 @media screen and (max-width: 768px) {
+
+    .catalogue-layout {
+        grid-template-columns: 1fr;
+    }
 
     header {
         flex-wrap: wrap;

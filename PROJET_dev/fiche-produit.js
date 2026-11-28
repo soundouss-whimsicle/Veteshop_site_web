@@ -11,6 +11,54 @@ const moins = document.querySelector("#moins");
 const nomProduit = document.querySelector("#nomProduit");
 const prixProduit = document.querySelector("#prixProduit");
 const compteurPanier = document.querySelector("#badgePanier");
+const descriptionProduit = document.querySelector("#descriptionProduit");
+const disponibiliteProduit = document.querySelector("#disponibiliteProduit");
+const idProduit = document.querySelector("#idProduit");
+const formulaireProduit = document.querySelector("#form");
+let produitSelectionne = null;
+
+// Charger le produit demandé dans l'URL, par exemple fiche-produit.html?id=101.
+const identifiantDemande = new URLSearchParams(window.location.search).get("id");
+chargerProduits().then((produits) => {
+    produitSelectionne = produits.find((produit) => String(produit.id) === identifiantDemande);
+
+    if (!produitSelectionne) {
+        nomProduit.textContent = "Produit introuvable";
+        descriptionProduit.textContent = "Choisissez un produit depuis une page de catégorie.";
+        formulaireProduit.querySelector('button[type="submit"]').disabled = true;
+        return;
+    }
+
+    nomProduit.textContent = produitSelectionne.nom;
+    prixProduit.textContent = produitSelectionne.prix;
+    descriptionProduit.textContent = produitSelectionne.description;
+    image.src = produitSelectionne.image;
+    image.alt = produitSelectionne.nom;
+    idProduit.value = produitSelectionne.id;
+    quantite.max = Math.min(produitSelectionne.stock, 10);
+    disponibiliteProduit.textContent = produitSelectionne.stock > 0
+        ? `Disponibilité : en stock (${produitSelectionne.stock})`
+        : "Disponibilité : épuisé";
+
+    const ajouterOptions = (conteneur, nomChamp, options) => {
+        conteneur.replaceChildren();
+        options.forEach((valeur, index) => {
+            const etiquette = document.createElement("label");
+            const choix = document.createElement("input");
+            choix.type = "radio";
+            choix.name = nomChamp;
+            choix.value = valeur;
+            choix.id = `${nomChamp}-${index}`;
+            etiquette.htmlFor = choix.id;
+            etiquette.append(choix, ` ${valeur} `);
+            conteneur.appendChild(etiquette);
+        });
+    };
+
+    ajouterOptions(document.querySelector("#optionsCouleur"), "couleur", produitSelectionne.couleurs);
+    ajouterOptions(document.querySelector("#optionsTaille"), "taille", produitSelectionne.tailles);
+    formulaireProduit.querySelector('button[type="submit"]').disabled = produitSelectionne.stock <= 0;
+});
 
 // Afficher le total déjà présent au chargement de la fiche
 let panierInitial = JSON.parse(localStorage.getItem("panier")) || [];
@@ -48,6 +96,7 @@ form.addEventListener("submit", (event) => {
 
     // Construire l'objet produit
     const produit = {
+        id: produitSelectionne.id,
         nom: nomProduit.textContent,
         prix: Number(prixProduit.textContent),
         couleur: couleur.value,
@@ -77,7 +126,9 @@ compteurPanier.textContent = nombreArticles;
 
 // Bouton +
 plus.addEventListener("click", () => {
-    quantite.value = Number(quantite.value) + 1;
+    if (produitSelectionne && Number(quantite.value) < Math.min(produitSelectionne.stock, 10)) {
+        quantite.value = Number(quantite.value) + 1;
+    }
 });
 
 // Bouton -
