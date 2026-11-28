@@ -1,3 +1,4 @@
+﻿
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -8,73 +9,99 @@
     </head>
     <body>
         <div>Livraison gratuite dès 500 DH d'achat !</div>
+
         <header>
             <img src="logo.png" alt="logo de la marque" width="100" height="auto">
-            <!-- class avatar ajusté a droite de la barre de navigation -->
-            <a href="avatar_utilisateur"><img src="avatar-utilisateur.png" alt="avatar de l'utilisateur" width="24" height="24" class="avatar"></a>
-            <a href="avatar_panier"><img src="avatar-panier.png" alt="avatar du panier" width="24" height="24" class="avatar"></a>
+
+            <a href="Authentification.html">
+                <img src="avatar-utilisateur.png" alt="avatar de l'utilisateur" width="24" height="24" class="avatar">
+            </a>
+
+            <a href="panier.html">
+                <img src="avatar-panier.png" alt="avatar du panier" width="24" height="24" class="avatar">
+                <span id="badgePanier" class="badge-panier">0</span>
+            </a>
         </header>
 
         <nav>
             <p>Menu</p>
             <ul>
-                <li><a href="#Acceuil">Accueil</a></li>
+                <li><a href="Acceuil.html">Accueil</a></li>
                 <li>Catégories</li>
-                <li><a href="sets.html">Sets</a></li>
+                <li><a href="Acceuil.html">Sets</a></li>
                 <li><a href="tops.html">Tops</a></li>
-                <li><a href="bottoms.html">bottoms</a></li>
+                <li><a href="buttoms.html">Bottoms</a></li>
             </ul>
         </nav>
 
-        <form >
+        <form>
             <input type="text" placeholder="Rechercher">
-            <a href="avatar_recherche"><img src="avatar-recherche.png" alt="avatar de recherche" width="24" height="24"></a>
+            <a href="#">
+                <img src="avatar-recherche.png" alt="avatar de recherche" width="24" height="24">
+            </a>
         </form>
 
         <section>
-            <h1>Nom du produit</h1>
-            <img src="image-produit.png" alt="image du produit">
-            <p>Description du produit.</p>
-            <p>Prix : xxx DH</p>
-            
-            <form action="ajouter_au_panier.php" method="post" id="form">
-                <label for="couleur">Couleur :</label>
-                <input type="radio" name="couleur" value="rouge"> Rouge
-                <input type="radio" name="couleur" value="bleu"> Bleu   
-                <input type="radio" name="couleur" value="vert"> Vert
-                <input type="radio" name="couleur" value="jaune"> Jaune
-                <br><br>
-                <div class="quantity-selector">
-                <button type="button" id="moins">-</button>
-                  <input type="number" id="quantite" name="quantite" value="1" min="1" readonly>
-                 <button type="button" id="plus">+</button>
+            <h1 id="nomProduit">Chargement du produit…</h1>
 
-            </div>
+            <img src="image-presentation.png" id="imageProduit" alt="image du produit">
+
+            <p id="descriptionProduit"></p>
+
+            <p>Prix : <span id="prixProduit">—</span> DH</p>
+
+            <form action="panier.html" method="post" id="form">
+
+                <label>Couleur :</label>
+                <div id="optionsCouleur"></div>
+
                 <br><br>
-                <label for="taille">Taille :</label>
-                <input type="radio" name="taille" value="XS"> XS
-                <input type="radio" name="taille" value="S"> S
-                <input type="radio" name="taille" value="M"> M
-                <input type="radio" name="taille" value="L"> L
-                <input type="radio" name="taille" value="XL"> XL
-                <input type="radio" name="taille" value="XXL"> XXL
+
+                <div class="quantity-selector">
+                    <button type="button" id="moins">-</button>
+                    <input type="number" id="quantite" name="quantite" value="1" min="1" readonly>
+                    <button type="button" id="plus">+</button>
+                </div>
+
+                <br><br>
+
+                <label>Taille :</label>
+                <div id="optionsTaille"></div>
+
                 <p id="erreurCouleur"></p>
                 <p id="erreurTaille"></p>
-            <p>Disponibilité : en stock</p>
-        
-                <input type="hidden" name="product_id" value="123">
-                <button type="submit">Ajouter au panier</button>
+
+                <p id="disponibiliteProduit"></p>
+
+                <input type="hidden" id="idProduit" name="product_id" value="">
+
+                <button type="submit" disabled>Ajouter au panier</button>
             </form>
         </section>
+
+        <footer>
+            <a href="Acceuil.html">Aide</a>
+            <p>Trouvez-nous sur :</p>
+
+            <a href="#">
+                <img src="instagram.png" alt="avatar d'Instagram" width="24" height="24">
+            </a>
+
+            <a href="#">
+                <img src="facebook.png" alt="avatar de Facebook" width="24" height="24">
+            </a>
+
+            <a href="#">
+                <img src="tiktok.png" alt="avatar de TikTok" width="24" height="24">
+            </a>
+
+            <p>&copy; 2024 Nom de la marque. Tous droits réservés.</p>
+        </footer>
+
+        <script src="produits-test.js" defer></script>
+        <script src="catalogue.js" defer></script>
         <script src="fiche-produit.js" defer></script>
     </body>
-
-    <footer>
-        <a href="aide">Aide</a>
-        <p>Trouvez nous sur:</p>
-        <a href="instagram"><img src="instagram.png" alt="avatar d'Instagram" width="24" height="24"></a>
-        <a href="facebook"><img src="facebook.png" alt="avatar de Facebook" width="24" height="24"></a>
-        <a href="tiktok"><img src="tiktok.png" alt="avatar de TikTok" width="24" height="24"></a>
-        <p>&copy; 2024 Nom de la marque. Tous droits réservés.</p>
-    </footer>
 </html>
+
+
