@@ -1,4 +1,4 @@
-nav ul {
+﻿nav ul {
   list-style: none;
   padding-left: 0;
 }
@@ -15,6 +15,7 @@ nav ul {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
 
 body{
   background-color:beige;
@@ -84,6 +85,21 @@ form img {
 
 
 
+header a { position: relative; }
+.badge-panier {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    border-radius: 50%;
+    background: var(--color-1);
+    color: white;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+}
 .avatar {
     width: 26px;
     height: 26px;
@@ -161,7 +177,7 @@ section p {
     margin: 10px 0;
 }
 
-/* Image de présentation */
+/* Image de prÃ©sentation */
 
 section:first-of-type > img {
     width: 100%;
@@ -291,5 +307,3 @@ footer p {
     section h2 {
         font-size: 22px;
     }
-     } 
-     }

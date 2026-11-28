@@ -1,33 +1,73 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Panier</title>
         <link rel="stylesheet" href="style.css">
+        <!-- Bibliothèque Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     </head>
     <body>
         <div>Livraison gratuite dès 500 DH d'achat !</div>
         <header>
             <img src="logo.png" alt="logo de la marque" width="100" height="auto">
             <!-- class avatar ajusté a droite de la barre de navigation -->
-            <a href="avatar_utilisateur"><img src="avatar-utilisateur.png" alt="avatar de l'utilisateur" width="24" height="24" class="avatar"></a>
-            <a href="avatar_panier"><img src="avatar-panier.png" alt="avatar du panier" width="24" height="24" class="avatar"></a>
+            <a href="Authentification.html"><img src="avatar-utilisateur.png" alt="avatar de l'utilisateur" width="24" height="24" class="avatar"></a>
+            <a href="panier.html"><img src="avatar-panier.png" alt="avatar du panier" width="24" height="24" class="avatar"><span id="badgePanier" class="badge-panier">0</span></a>
         </header>
-
+        <div id="panierVide">
         <h1>Mon Panier</h1>
-        <img src="" alt="image d'un panier" width="200" height="auto">
+        <img src="image-presentation.png" alt="image du produit" id="imageProduit">
         <p>Votre panier est actuellement vide!</p>
         <p>Il semblerait que vous n'ayez pas encore trouvé votre coup de cœur.</p>
         <button><a href="Acceuil.html">Retour à l'accueil</a></button>
+        </div>
+           <section class="listePanier">
+        <table id="tablePanier"hidden >
+            <thead>
+              <tr>
+                    <th>Produit</th>
+                    <th>Prix unitaire</th>
+                    <th>Quantité</th>
+                    <th>Sous-total</th>
+                    <th></th>
+             </tr>
+            </thead>
+            <tbody id="listeProduits">
+            </tbody>
+           <tfoot>
+    <tr>
+        <th colspan="3">Total des produits</th>
+        <td id="totalProduits">0 DH</td>
+        <td></td>
+    </tr>
 
+    <tr>
+        <th colspan="3">Frais de livraison</th>
+        <td id="fraisLivraison">0 DH</td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <th colspan="3">Total à payer</th>
+        <td id="prixTotal">0 DH</td>
+        <td></td>
+    </tr>
+</tfoot>
+        </table>
+    </section>
+       
         <footer>
-            <a href="aide">Aide</a>
+            <a href="Acceuil.html">Aide</a>
             <p>Trouvez nous sur:</p>
-            <a href="instagram"><img src="instagram.png" alt="avatar d'Instagram" width="24" height="24"></a>
-            <a href="facebook"><img src="facebook.png" alt="avatar de Facebook" width="24" height="24"></a>
-            <a href="tiktok"><img src="tiktok.png" alt="avatar de TikTok" width="24" height="24"></a>
+            <a href="#"><img src="instagram.png" alt="avatar d'Instagram" width="24" height="24"></a>
+            <a href="#"><img src="facebook.png" alt="avatar de Facebook" width="24" height="24"></a>
+            <a href="#"><img src="tiktok.png" alt="avatar de TikTok" width="24" height="24"></a>
             <p>&copy; 2024 Nom de la marque. Tous droits réservés.</p>
         </footer>
+        <script src="panier.js" defer></script>
     </body>
+   
 </html>
+
