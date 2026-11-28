@@ -1,0 +1,120 @@
+:root {
+    --color-1: #943B5B;
+    --color-2: #F4E3D9;
+    --color-3: #F7E9DE;
+    --color-4: #B6728B;
+    --texte: #3a1626; /* bordeaux très sombre, pour que le texte reste lisible */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--texte);
+    /* Blocs diagonaux, comme un legging ou un top de sport */
+    background:
+        linear-gradient(120deg, var(--color-1) 0 30%, transparent 30.1%),
+        linear-gradient(120deg, var(--color-4) 0 45%, transparent 45.1%),
+        var(--color-2);
+}
+
+/* La carte */
+#connexion {
+    position: relative;
+    width: min(100%, 24rem);
+    padding: 2.6rem 2rem 2rem 2.4rem;
+    background: var(--color-3);
+    border-radius: 16px;
+    box-shadow: 0 20px 45px rgba(58, 22, 38, 0.35);
+    overflow: hidden;
+}
+
+/* Bande de couleur sur le côté gauche, comme la bande d'un survêtement */
+#connexion::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0.8rem;
+    background: linear-gradient(var(--color-1) 0 50%, var(--color-4) 50% 100%);
+}
+
+/* Titre ajouté par le CSS, donc pas besoin de toucher au HTML */
+#connexion::after {
+    content: "Connexion";
+    order: -1;
+}
+
+#connexion br {
+    display: none;
+}
+
+#connexion label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--color-1);
+}
+
+#connexion input {
+    width: 100%;
+    padding: 0.6rem 0.2rem;
+    margin-bottom: 1.5rem;
+    font: inherit;
+    color: var(--texte);
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid var(--color-1);
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#connexion input:focus {
+    border-bottom-color: var(--color-4);
+}
+
+#connexion button {
+    width: 100%;
+    padding: 0.9rem;
+    font: inherit;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-3);
+    background: var(--color-1);
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+#connexion button:hover {
+    background: var(--color-4);
+}
+
+#connexion button:active {
+    transform: scale(0.98);
+}
+
+#connexion button:focus-visible {
+    outline: 3px solid var(--color-4);
+    outline-offset: 2px;
+}
+
+#erreur {
+    min-height: 1.2rem;
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    color: #8a1c1c;
+}
